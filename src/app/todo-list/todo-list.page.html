@@ -1,0 +1,37 @@
+<ion-content>
+  <div >
+    <ion-list >
+      <div class="ion-text-center">
+        <ion-label> Tarjetas </ion-label>
+      </div>
+      <ion-item *ngFor="let task of Tasks" >
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{task.name}}</ion-card-subtitle>
+            <ion-card-title>Latitud: {{task.latitud}}</ion-card-title>
+            <ion-card-title>Longitud: {{task.longitud}}</ion-card-title>
+          </ion-card-header>
+          <div class="ion-text-center">>
+            <ion-button clear (click)="remove(task.id)">
+              <ion-icon name="trash"></ion-icon> Eliminar
+            </ion-button>
+          </div>
+        </ion-card>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-tabs >
+    <ion-tab-bar slot="bottom" color="primary">
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/todo-list" tab="todo-list">
+      <ion-icon name="list-outline"></ion-icon>
+      <ion-label>Listado</ion-label>
+    </ion-tab-button>
+  
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/home" tab="create-task">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label>Mapa</ion-label>
+    </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+</ion-content>

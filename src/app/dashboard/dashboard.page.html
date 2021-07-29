@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Tu ubicación</ion-title>
+  </ion-toolbar>
+  <ion-header (click)="logout()">
+    <ion-toolbar color="dark">
+      <ion-title>Salir</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div>
+    <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="name" type="text" required></ion-input>
+      </ion-item>
+      <ion-button
+        class="ion-margin-top"
+        type="submit"
+        expand="block"
+        color="secondary"
+      >
+        Guardar</ion-button
+      >
+    </form>
+  </div>
+  <ion-list [hidden]="autocompleteItems.length == 0">
+    <ion-item
+      *ngFor="let item of autocompleteItems"
+      tappable
+      (click)="SelectSearchResult(item)"
+    >
+      {{ item.description }}
+    </ion-item>
+  </ion-list>
+</ion-header>
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="ShowCords()" ion-fab color="tertiary">
+      <ion-icon name="information-circle-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <div class="map-wrapper" style="height: 60%">
+    <div #map id="map" style="height: 100%"></div>
+  </div>
+  <ion-tabs >
+    <ion-tab-bar slot="bottom" color="primary">
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/todo-list" tab="todo-list">
+      <ion-icon name="list-outline"></ion-icon>
+      <ion-label>Listado</ion-label>
+    </ion-tab-button>
+  
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/dashboard" tab="create-task">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label>Mapa</ion-label>
+    </ion-tab-button>
+    </ion-tab-bar>
+    <ion-tab-button routerLinkActive="tab-selected" routerLink="/home" tab="create-task">
+      <ion-icon name="add-circle-outline"></ion-icon>
+      <ion-label>Chat</ion-label>
+    </ion-tab-button>
+    </ion-tab-bar>
+    
+  </ion-tabs>
+</ion-content>

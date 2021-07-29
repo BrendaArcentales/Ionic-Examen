@@ -1,0 +1,58 @@
+.home-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .header {
+    flex: 1;
+    .title {
+      padding-top: 70px;
+      img {
+        width: 100px;
+      }
+    }
+  }
+
+  .login-container {
+    flex: 2;
+  }
+
+  .form {
+    --background: none;
+    background: none;
+    max-width: 320px;
+    margin: 0 auto;
+
+  
+  }
+}
+
+
+.error-message {
+    color:#cc1616;
+}
+
+.fade-in {
+  animation: fadein 2s;
+}
+.fade-out {
+  animation: fadeout 1s;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
